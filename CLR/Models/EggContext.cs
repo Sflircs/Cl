@@ -19,5 +19,11 @@ namespace CLR.Models
         public DbSet<Enrollment> Enrollments { get; set; }
         public DbSet<Instructor> Instructors { get; set; }
         public DbSet<Student> Students { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            Database.SetInitializer<EggContext>(new DropCreateDatabaseIfModelChanges<EggContext>());
+        }
     }
 }
