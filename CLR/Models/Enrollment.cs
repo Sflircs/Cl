@@ -11,17 +11,25 @@ namespace CLR.Models
     public class Enrollment
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+
         [Required]
         public int StudentId { get; set; }
+
         [Required]
         public int CourseId { get; set; }
+
         [Required]
         public int OrderState { get; set; }
 
         public bool IsComplete { get; set; }
+
+        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         [Timestamp]
         public byte[] TimeStart { get; set; }
+
+        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         [Timestamp]
         public byte[] LastActive { get; set; } 
 

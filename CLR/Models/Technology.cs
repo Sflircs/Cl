@@ -11,7 +11,9 @@ namespace CLR.Models
     public class Technology
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+
         [Required]
         [MinLength(2)]
         public string Name { get; set; }
@@ -24,10 +26,11 @@ namespace CLR.Models
 
         [Required]
         public string Intro { get; set; }
+
+        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         [Timestamp]
         public byte[] LastUpdate { get; set; }
 
         public virtual List<Course> Courses { get; set; }
-
     }
 }

@@ -11,20 +11,26 @@ namespace CLR.Models
     public class Lession
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+
         [Required]
         [MinLength(2)]
         public string Name { get; set; }
+
         [Required]
         public int CourseId { get; set; }
 
         public int Order { get; set; }
+
         [Required]
         public int Time { get; set; }
 
         public int Video { get; set; }
 
         public bool Ispro { get; set; }
+
+        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         [Timestamp]
         public byte[] LastUpdate { get; set; }
 

@@ -11,13 +11,17 @@ namespace CLR.Models
     public class Student
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+
         [Required]
         [MinLength(4)]
         public string Uid { get; set; }
+
         [Required]
         [MinLength(2)]
         public string FirstName { get; set; }
+
         [Required]
         [MinLength(2)]
         public string LastName { get; set; }
@@ -31,8 +35,10 @@ namespace CLR.Models
         public string Blog { get; set; }
 
         public string Intro { get; set; }
+
         [Required]
         public string Email { get; set; }
+
         [Required]
         public string Passwd { get; set; }
 
@@ -42,8 +48,15 @@ namespace CLR.Models
 
         public string Avatar { get; set; }
 
+        public string LargeAvatar { get; set; }
+
+        public string MediumAvatar { get; set; }
+
+        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         [Timestamp]
         public byte[] ExpiredProTime { get; set; }
+
+        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         [Timestamp]
         public byte[] LastUpdate { get; set; }
 

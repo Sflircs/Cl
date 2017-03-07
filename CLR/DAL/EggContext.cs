@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
+using CLR.Models;
 
-namespace CLR.Models
+namespace CLR.DAL
 {
     public class EggContext : DbContext
     {
@@ -23,7 +24,6 @@ namespace CLR.Models
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            Database.SetInitializer<EggContext>(new DropCreateDatabaseIfModelChanges<EggContext>());
         }
     }
 }

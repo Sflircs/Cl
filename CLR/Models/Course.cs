@@ -11,7 +11,9 @@ namespace CLR.Models
     public class Course
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+
         [Required]
         [MinLength(2)]
         public string Name { get; set; }
@@ -21,14 +23,19 @@ namespace CLR.Models
         public string LargeImage { get; set; }
 
         public string MediumImage { get; set; }
+
         [Required]
         public string Intro { get; set; }
 
         public bool IsPro { get; set; }
+
         [Required]
         public int InstructorId { get; set; }
+
         [Required]
         public int TechnologyId { get; set;}
+
+        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         [Timestamp]
         public byte[] LastUpdate { get; set; }
 
